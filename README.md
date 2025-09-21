@@ -196,7 +196,7 @@ Parallax will follow a transparent release process to ensure fairness and neutra
    The protocol specification and economic model will be published publicly to invite community review and discussion.  
 
 2. **Open-Source Code Release and Mainnet Launch:**  
-   After the whitepaper is published, the full Parallax client source code will be released. The mainnet will launch immediately after code release, with no premine, no privileged allocations, and no hidden mining period. The exact launch date will be announced on our [our official X account](https://x.com/prlxchain) and will take place two weeks after the lock-in announcement, ensuring all participants have equal time to prepare.
+   After the whitepaper is published, the full Parallax client source code will be released. The mainnet will launch after code release, with no premine, no privileged allocations, and no hidden mining period. The exact mainnet launch date will be announced on our [our official X account](https://x.com/prlxchain) and will take place at least two weeks after the lock-in announcement, ensuring all participants have equal time to prepare.
 
 3. **Genesis Block:**  
    The genesis block will be minimal, with no pre-deployed contracts or special accounts. The first miner to solve a valid block will receive the standard block reward of 50 coins.  
