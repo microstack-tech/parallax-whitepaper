@@ -2,7 +2,7 @@
 
 ## Abstract
 
-Parallax is a timechain protocol that unites Bitcoin’s immutability and monetary discipline with Ethereum’s programmability. Operating under Bitcoin’s fixed rules — Proof of Work, ten-minute blocks, halving cycles, and a capped 21 million supply — Parallax extends these foundations with the Ethereum Virtual Machine. By adopting Ethash mining and rejecting premine or privileged allocations, it launches as a fair and neutral experiment in programmable cash: scarce, decentralized, and permissionless.
+Parallax is a timechain protocol that unites Bitcoin’s immutability and monetary discipline with Ethereum’s programmability. Operating under Bitcoin’s fixed rules — Proof of Work, ten-minute blocks, halving cycles, and a capped 21 million supply — Parallax extends these foundations with the Ethereum Virtual Machine. By adopting XHash mining — a modified Ethash variant designed to obsolete existing ASICs — and rejecting premine or privileged allocations,, it launches as a fair and neutral experiment in programmable cash: scarce, decentralized, and permissionless.
 
 ---
 
@@ -10,7 +10,7 @@ Parallax is a timechain protocol that unites Bitcoin’s immutability and moneta
 
 Bitcoin demonstrated that decentralized digital scarcity is possible, providing a secure and immutable ledger with a predictable monetary policy. Ethereum introduced a Turing-complete execution layer, enabling decentralized applications and financial primitives. However, Ethereum's adaptive monetary policy contrasts with Bitcoin's fixed, discipline-driven design.
 
-Parallax bridges this gap. It preserves Bitcoin's monetary rules while adopting Ethereum's virtual machine for programmability. To further strengthen accessibility and decentralization, Parallax employs the Ethash Proof of Work function, historically used by Ethereum before its transition to Proof of Stake.
+Parallax bridges this gap. It preserves Bitcoin's monetary rules while adopting Ethereum's virtual machine for programmability. To further strengthen accessibility and decentralization, Parallax employs the XHash Proof of Work function — a modified Ethash variant that preserves Ethash’s memory-hard properties while making existing ASICs obsolete.
 
 ---
 
@@ -30,7 +30,7 @@ The protocol’s design balances security, decentralization, and usability throu
 
 | Parameter                  | Value |
 |-----------------------------|-------|
-| Consensus Mechanism         | Proof of Work (Ethash) |
+| Consensus Mechanism         | Proof of Work (XHash, Ethash-derived) |
 | Target Block Interval       | 600 seconds (10 minutes) |
 | Difficulty Adjustment Window| 2016 blocks (~2 weeks) |
 | Initial Block Reward        | 50 coins |
@@ -55,7 +55,7 @@ Parallax is positioned between these two. Like Bitcoin, it has a fixed supply of
 |---------------------|---------|----------|---------|
 | Supply Cap          | 21M (fixed) | Uncapped | 21M (fixed) |
 | Block Interval      | 10 min | 12–15s | 10 min |
-| Consensus           | PoW (SHA-256) | PoS (Casper/Beacon) | PoW (Ethash) |
+| Consensus           | PoW (SHA-256) | PoS (Casper/Beacon) | PoW (XHash) |
 | Programmability     | Limited script | Full EVM | Full EVM |
 | Fee Model           | First-price | EIP-1559 (burn) | First-price (no burn) |
 | Coinbase Maturity Threshold | 100 Blocks     | N/A                 | 100 Blocks            |
@@ -80,9 +80,9 @@ Parallax adopts Bitcoin's timechain structure, modified to include an EVM execut
 
 ### Proof of Work
 
-Parallax employs Nakamoto consensus with Ethash. Ethash is memory-hard and was originally designed to discourage the centralization of mining in specialized ASIC hardware. By choosing Ethash, Parallax favors broader participation via commodity GPUs, especially in its early years. A valid block requires finding a nonce `n` such that:
+Parallax employs Nakamoto consensus with XHash. XHash is memory-hard and was originally designed to discourage the centralization of mining in specialized ASIC hardware. By choosing XHash, Parallax favors broader participation via commodity CPUs & GPUs, especially in its early years. A valid block requires finding a nonce `n` such that:
 
-```Ethash(block_header, n) < T```
+```XHash(block_header, n) < T```
 
 where `T` is the current network difficulty target.
 
@@ -132,7 +132,7 @@ Parallax inherits its monetary design directly from Bitcoin. All coins must be m
 
 Parallax’s security emerges from the combination of Proof of Work, long block intervals, and strict monetary policy. The ten-minute target ensures deep finality over time, making double-spending attacks expensive and impractical. Longer block times reduce the frequency of chain reorganizations, contributing to network stability.
 
-Ethash strengthens security in another dimension by promoting miner accessibility. Its memory-hard nature means that commodity hardware, especially GPUs, can participate competitively. This makes it more difficult for a small number of industrial ASIC operators to dominate the network, particularly in the early stages of adoption.
+XHash strengthens security in another dimension by promoting miner accessibility. Its memory-hard nature means that commodity hardware, especially GPUs, can participate competitively. This makes it more difficult for a small number of industrial ASIC operators to dominate the network, particularly in the early stages of adoption.
 
 Propagation and block size considerations are also central to Parallax’s security model. By conservatively capping throughput at around one million gas per second, Parallax ensures that nodes remain accessible to individuals and smaller operators, preventing excessive centralization pressures. The combination of fixed supply, cumulative Proof of Work, and fair miner incentives forms a trust-minimized foundation resistant to governance manipulation.
 
@@ -176,7 +176,7 @@ Parallax adopts this principle in full. While it introduces programmability thro
 
 Many alternative cryptocurrencies (“altcoins”) have pursued speed, throughput, or experimental features at the expense of neutrality and decentralization. While faster block times or novel governance models may appear attractive in the short term, they typically rely on centralized consensus mechanisms or privileged validators. This undermines the very property that makes Bitcoin revolutionary: the ability to participate without permission and without trust in any authority.
 
-The decentralization of Parallax arises from both the accessibility of Ethash mining and the ossified monetary rules. By externalizing attack costs to physical energy and hardware, Parallax resists capture by financial whales or governance cartels. Influence is earned only through work performed, never through privilege or identity.
+The decentralization of Parallax arises from both the accessibility of XHash mining and the ossified monetary rules. By externalizing attack costs to physical energy and hardware, Parallax resists capture by financial whales or governance cartels. Influence is earned only through work performed, never through privilege or identity.
 
 Parallax rejects such trade-offs. Its design respects and extends Satoshi’s vision by preserving Proof of Work as the only credible foundation for a decentralized, permissionless timechain. All programmability, throughput, and application-layer innovations must operate within this boundary: decentralization first, convenience second. With sufficient network maturity, the drawbacks of slow block intervals can be mitigated through the use of Layer 2 settlement solutions, ensuring scalability without sacrificing the core guarantees of permissionless decentralization.
 
